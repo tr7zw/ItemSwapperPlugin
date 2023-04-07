@@ -53,14 +53,12 @@ public class ItemSwapperPlugin extends JavaPlugin implements Listener {
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         out.writeBoolean(enabled);
         p.sendPluginMessage(this, "itemswapper:enableshulker", out.toByteArray());
-        System.out.println("Sent itemswapper:enableshulker to " + p);
     }
     
     public void sendRefillSupportPacket(Player p, boolean enabled) {
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         out.writeBoolean(enabled);
         p.sendPluginMessage(this, "itemswapper:enablerefill", out.toByteArray());
-        System.out.println("Sent itemswapper:enablerefill to " + p);
     }
 
     public void sendDisableModPacket(Player p, boolean disabled) {
