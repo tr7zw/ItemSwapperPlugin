@@ -22,6 +22,13 @@ public class CommandSwap implements PluginMessageListener {
         if (shulker == null || shulker.getType() == Material.AIR) {
             return;
         }
+        if (player.getInventory().getItemInMainHand() != null
+                && player.getInventory().getItemInMainHand().getType() != Material.AIR
+                && player.getInventory().getItemInMainHand().getItemMeta() instanceof BlockStateMeta bsm
+                && bsm.getBlockState() instanceof ShulkerBox) {
+            // Trying to put a shulker into a shulker, prevent this.
+            return;
+        }
         ItemMeta meta = shulker.getItemMeta();
         if (meta instanceof BlockStateMeta bsm && bsm.getBlockState() instanceof ShulkerBox box) {
             ItemStack tmp = box.getInventory().getItem(slot);
